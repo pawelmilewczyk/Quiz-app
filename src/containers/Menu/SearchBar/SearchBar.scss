@@ -1,0 +1,30 @@
+.form-group {
+  .MuiOutlinedInput-root {
+    border-radius: 10rem;
+    font-size: 1.6rem;
+    font-weight: 200;
+    transition: all 0.2s;
+
+    fieldset {
+      transition: all 0.2s;
+    }
+
+    &:hover fieldset {
+      border: 1px solid #ccc;
+    }
+  }
+
+  .Mui-focused {
+    transform: translateY(-3px);
+
+    fieldset {
+      box-shadow: 0.5rem 0.5rem 1.5rem rgba(#000, 0.15);
+      border: 1px solid #ccc !important;
+    }
+  }
+
+  .MuiSvgIcon-root {
+    font-size: 2rem;
+    fill: rgba(#000, 0.2);
+  }
+}
