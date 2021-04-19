@@ -1,12 +1,15 @@
 import "./SearchBar.scss";
-
-import TextField from "@material-ui/core/TextField";
-import InputAdornment from "@material-ui/core/InputAdornment";
+import { InputAdornment, TextField } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+
+import { matchSorter } from "match-sorter";
+import { connect } from "react-redux";
+import * as actions from "../../../store/actions";
 
 const SearchBar = (props) => {
   const changeHandler = (e) => {
-    console.log(e.target);
+    const inputValue = e.target.value;
+    props.updateTitles(matchSorter(props.titles, inputValue));
   };
   return (
     <form className="form-group">
@@ -28,4 +31,17 @@ const SearchBar = (props) => {
   );
 };
 
-export default SearchBar;
+const mapStateToProps = (state) => {
+  return {
+    titles: state.titles,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateTitles: (updatedTitles) =>
+      dispatch(actions.updateTitles(updatedTitles)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

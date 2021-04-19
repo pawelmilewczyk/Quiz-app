@@ -1,5 +1,5 @@
 import classes from "./App.module.scss";
-import axios from "axios";
+// import axios from "axios";
 import Menu from "./containers/Menu/Menu";
 
 function App() {
