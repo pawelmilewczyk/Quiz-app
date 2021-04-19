@@ -1,5 +1,7 @@
+@import "../../sass/variables.scss";
+
 .Title {
-  font-size: 4rem;
+  font-size: $font-size-title;
   font-weight: 300;
   text-align: center;
 }

@@ -1,8 +1,10 @@
+@import "../../../sass/variables.scss";
+
 .form-group {
   .MuiOutlinedInput-root {
     border-radius: 10rem;
-    font-size: 1.6rem;
-    font-weight: 200;
+    font-size: $font-size-normal;
+    font-weight: 300;
     transition: all 0.2s;
 
     fieldset {
@@ -10,7 +12,7 @@
     }
 
     &:hover fieldset {
-      border: 1px solid #ccc;
+      border: $border-grey;
     }
   }
 
@@ -18,8 +20,8 @@
     transform: translateY(-3px);
 
     fieldset {
-      box-shadow: 0.5rem 0.5rem 1.5rem rgba(#000, 0.15);
-      border: 1px solid #ccc !important;
+      box-shadow: $box-shadow-light;
+      border: $border-grey !important;
     }
   }
 
