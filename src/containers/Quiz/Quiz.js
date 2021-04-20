@@ -1,6 +1,7 @@
 import Title from "../../components/Title/Title";
-import Questions from "./Questions/Questions";
 import Horizontal from "../../components/Horizontal/Horizontal";
+import Questions from "./Questions/Questions";
+import CurrentQuestion from "./CurrentQuestion/CurrentQuestion";
 
 const Quiz = (props) => {
   return (
@@ -8,6 +9,7 @@ const Quiz = (props) => {
       <Title>Course name</Title>
       <Questions />
       <Horizontal>Current Question</Horizontal>
+      <CurrentQuestion />
     </div>
   );
 };
