@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 const Questions = (props) => {
   const clickHandler = (e) => {
+    if (e.target.childNodes.length > 2) return;
     const div = e.target.closest("div");
     div.parentElement.childNodes.forEach((child) => {
       child.classList.remove(classes.active);

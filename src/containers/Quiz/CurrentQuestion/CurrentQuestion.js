@@ -3,11 +3,10 @@ import * as actions from "../../../store/actions";
 import { connect } from "react-redux";
 
 const CurrentQuestion = (props) => {
-  console.log(props.data);
+  //   console.log(props.data);
   const currentData = props.data[props.currentQuestion];
 
   const answers = currentData ? Object.values(currentData?.answers) : [];
-  answers.map((answer) => console.log(answer));
 
   return (
     <div className={classes.CurrentQuestion}>
