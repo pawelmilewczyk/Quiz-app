@@ -3,20 +3,22 @@ import * as actions from "../../../store/actions";
 import { connect } from "react-redux";
 
 const CurrentQuestion = (props) => {
-  //   console.log(props.data);
   const currentData = props.data[props.currentQuestion];
-
-  const answers = currentData ? Object.values(currentData?.answers) : [];
+  const answers = [];
+  if (currentData)
+    for (const [key, value] of Object.entries(currentData.answers)) {
+      answers.push({ index: key, answer: value });
+    }
 
   return (
     <div className={classes.CurrentQuestion}>
       <div className={classes.question}>{currentData?.question}</div>
       <div className={classes.answers}>
-        {answers.map((answer) =>
-          answer ? (
-            <div className={classes.input_group}>
-              <input type="checkbox" />
-              <label>{answer}</label>
+        {answers.map((el) =>
+          el.answer ? (
+            <div className={classes.input_group} key={el.index}>
+              <input type="checkbox" name={el.index} />
+              <label>{el.answer}</label>
             </div>
           ) : null
         )}
