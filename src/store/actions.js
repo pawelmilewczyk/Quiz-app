@@ -45,3 +45,10 @@ export const updateTitles = (updatedTitles) => {
     titles: updatedTitles,
   };
 };
+
+export const setCurrentQuestion = (index) => {
+  return {
+    type: actionTypes.SET_CURRENT_QUESTION,
+    question: index,
+  };
+};

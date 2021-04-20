@@ -1,14 +1,15 @@
 import classes from "./Questions.module.scss";
+import * as actions from "../../../store/actions";
 import { connect } from "react-redux";
 
 const Questions = (props) => {
   const clickHandler = (e) => {
-    e.target
-      .closest("div")
-      .parentElement.childNodes.forEach((child) =>
-        child.classList.remove(classes.active)
-      );
-    e.target.closest("div").classList.add(classes.visited, classes.active);
+    const div = e.target.closest("div");
+    div.parentElement.childNodes.forEach((child) => {
+      child.classList.remove(classes.active);
+    });
+    div.classList.add(classes.visited, classes.active);
+    props.setQuestion(div.childNodes[1].innerHTML - 1);
   };
 
   return (
@@ -21,7 +22,7 @@ const Questions = (props) => {
               : classes.Grid_item
           }
           key={index}
-          question={index}
+          value={index}
         >
           Question <span>{index + 1}</span>
         </div>
@@ -36,4 +37,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Questions);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setQuestion: (index) => dispatch(actions.setCurrentQuestion(index)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Questions);
