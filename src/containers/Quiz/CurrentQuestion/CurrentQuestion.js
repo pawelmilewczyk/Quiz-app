@@ -20,17 +20,11 @@ const CurrentQuestion = (props) => {
   const answersLength = answers.filter((el) => el.answer).length;
   const questionsNumber = props.data.length;
 
-  const nextQuestionHandler = (e) => {
-    if (props.currentQuestion < questionsNumber - 1) {
-      props.setQuestion(props.currentQuestion + 1);
-    }
-  };
+  const nextQuestionHandler = () =>
+    props.setQuestion(props.currentQuestion + 1);
 
-  const previousQuestionHandler = (e) => {
-    if (props.currentQuestion > 0) {
-      props.setQuestion(props.currentQuestion - 1);
-    }
-  };
+  const previousQuestionHandler = () =>
+    props.setQuestion(props.currentQuestion - 1);
 
   return (
     <div className={classes.CurrentQuestion}>
