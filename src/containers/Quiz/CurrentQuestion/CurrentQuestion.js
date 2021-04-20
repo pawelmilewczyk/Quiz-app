@@ -1,6 +1,7 @@
 import classes from "./CurrentQuestion.module.scss";
 import * as actions from "../../../store/actions";
 import { connect } from "react-redux";
+import Button from "../../../components/Button/Button";
 
 const CurrentQuestion = (props) => {
   const currentData = props.data[props.currentQuestion];
@@ -34,6 +35,7 @@ const CurrentQuestion = (props) => {
           ) : null
         )}
       </div>
+      <Button>Next question</Button>
     </div>
   );
 };
