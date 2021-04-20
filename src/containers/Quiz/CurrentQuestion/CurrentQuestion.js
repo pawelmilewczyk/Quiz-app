@@ -35,6 +35,7 @@ const CurrentQuestion = (props) => {
           ) : null
         )}
       </div>
+      <Button>Previous question</Button>
       <Button>Next question</Button>
     </div>
   );
