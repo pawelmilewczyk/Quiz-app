@@ -1,0 +1,5 @@
+@mixin media_maxWidth($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}

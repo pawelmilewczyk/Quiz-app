@@ -33,11 +33,7 @@ const Quizzes = (props) => {
   );
 
   return (
-    <Grid
-      container
-      justify="center"
-      style={{ marginTop: "5rem", maxWidth: "1000px" }}
-    >
+    <Grid container justify="center">
       {props.filteredTitles.length
         ? props.filteredTitles.map((title) => renderQuiz(title))
         : props.titles.map((title) => renderQuiz(title))}

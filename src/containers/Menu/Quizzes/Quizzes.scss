@@ -1,4 +1,14 @@
 @import "../../../sass/variables.scss";
+@import "../../../sass/mixins.scss";
+
+.MuiGrid-container {
+  margin-top: 5rem;
+  max-width: 100rem;
+
+  @include media_maxWidth($breakpoint-xs) {
+    margin-top: 3rem;
+  }
+}
 
 .MuiGrid-item {
   max-width: 30em;
