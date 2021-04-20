@@ -29,6 +29,11 @@
       transform: scale(1.05);
       box-shadow: $box-shadow;
     }
+
+    &:active {
+      transform: scale(1);
+      box-shadow: $box-shadow-light;
+    }
   }
 
   .visited {
