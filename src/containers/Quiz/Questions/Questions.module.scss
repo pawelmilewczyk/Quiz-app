@@ -20,7 +20,7 @@
     transition: all 0.2s;
     cursor: pointer;
 
-    color: $font-color-primary;
+    color: $color-primary;
     background-color: $color-white;
     border: $border-grey-light;
     box-shadow: $box-shadow-light;
@@ -37,14 +37,14 @@
   }
 
   .visited {
-    color: $font-color-primary;
+    color: $color-primary;
     background-color: $color-white-darker;
     border: 1px solid transparent;
   }
 
   .active {
     color: $color-white;
-    background-color: $font-color-secondary;
+    background-color: $color-secondary;
     border: 1px solid transparent;
   }
 }
