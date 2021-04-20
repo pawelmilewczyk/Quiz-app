@@ -1,0 +1,44 @@
+@import "../../../sass/variables.scss";
+
+.Grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max-content, 11rem));
+  align-content: center;
+  justify-content: center;
+  gap: 2rem 5rem;
+  padding: 2rem;
+
+  .Grid_item {
+    display: flex;
+    flex-direction: column;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: $font-size-small;
+    font-weight: 400;
+    padding: 1.5rem;
+    border-radius: 5px;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    color: $font-color-primary;
+    background-color: $color-white;
+    border: $border-grey-light;
+    box-shadow: $box-shadow-light;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: $box-shadow;
+    }
+  }
+  .active {
+    color: $color-white;
+    background-color: $font-color-secondary;
+    border: 1px solid transparent;
+  }
+
+  .visited {
+    color: $font-color-primary;
+    background-color: $color-white-darker;
+    border: 1px solid transparent;
+  }
+}
