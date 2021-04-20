@@ -15,4 +15,6 @@ html {
 body {
   font-family: Roboto, sans-serif;
   background-color: $color-white-darker;
+  display: flex;
+  justify-content: center;
 }
