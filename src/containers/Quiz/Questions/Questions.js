@@ -9,7 +9,6 @@ const Questions = (props) => {
     div.parentElement.childNodes.forEach((child) => {
       child.classList.remove(classes.active);
     });
-    div.classList.add(classes.visited, classes.active);
     props.setQuestion(div.childNodes[1].innerHTML - 1);
   };
 
@@ -18,7 +17,7 @@ const Questions = (props) => {
       {props.data.map((_, index) => (
         <div
           className={
-            index === 0
+            index === props.currentQuestion
               ? [classes.Grid_item, classes.visited, classes.active].join(" ")
               : classes.Grid_item
           }
@@ -35,6 +34,7 @@ const Questions = (props) => {
 const mapStateToProps = (state) => {
   return {
     data: state.data,
+    currentQuestion: state.currentQuestion,
   };
 };
 
