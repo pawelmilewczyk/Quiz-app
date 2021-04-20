@@ -11,6 +11,7 @@ const StyledButton = (props) => {
           : [classes.Secondary, classes.Button].join(" ")
       }
       type={props.type}
+      onClick={props.clicked}
     >
       {props.children}
     </Button>
