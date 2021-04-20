@@ -2,14 +2,25 @@ import { Button } from "@material-ui/core";
 import classes from "./Button.module.scss";
 
 const StyledButton = (props) => {
+  let buttonClass = [classes.Button];
+
+  if (props.type === "nextBtn") {
+    buttonClass = [classes.Button, classes.Secondary].join(" ");
+    if (props.currentQuestion === props.questionsNumber - 1)
+      buttonClass = classes.Hidden;
+  }
+  if (props.type === "prevBtn") {
+    buttonClass = [classes.Button, classes.Secondary].join(" ");
+    if (props.currentQuestion < 1) buttonClass = classes.Hidden;
+  }
+
+  if (props.type === "submit") {
+  }
+
   return (
     <Button
       variant="outlined"
-      className={
-        props.type
-          ? [classes.Tertiary, classes.Button].join(" ")
-          : [classes.Secondary, classes.Button].join(" ")
-      }
+      className={buttonClass}
       type={props.type}
       onClick={props.clicked}
     >

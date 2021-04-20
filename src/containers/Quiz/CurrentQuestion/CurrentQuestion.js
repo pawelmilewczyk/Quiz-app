@@ -18,6 +18,19 @@ const CurrentQuestion = (props) => {
   }
 
   const answersLength = answers.filter((el) => el.answer).length;
+  const questionsNumber = props.data.length;
+
+  const nextQuestionHandler = (e) => {
+    if (props.currentQuestion < questionsNumber - 1) {
+      props.setQuestion(props.currentQuestion + 1);
+    }
+  };
+
+  const previousQuestionHandler = (e) => {
+    if (props.currentQuestion > 0) {
+      props.setQuestion(props.currentQuestion - 1);
+    }
+  };
 
   return (
     <div className={classes.CurrentQuestion}>
@@ -35,8 +48,21 @@ const CurrentQuestion = (props) => {
           ) : null
         )}
       </div>
-      <Button>Previous question</Button>
-      <Button>Next question</Button>
+      <Button
+        type="prevBtn"
+        clicked={previousQuestionHandler}
+        currentQuestion={props.currentQuestion}
+      >
+        Previous question
+      </Button>
+      <Button
+        type="nextBtn"
+        clicked={nextQuestionHandler}
+        questionsNumber={questionsNumber}
+        currentQuestion={props.currentQuestion}
+      >
+        Next question
+      </Button>
     </div>
   );
 };
