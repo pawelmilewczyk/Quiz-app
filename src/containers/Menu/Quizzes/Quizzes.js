@@ -8,6 +8,7 @@ const Quizzes = (props) => {
   const clickHandler = (e) => {
     const tag = e.target.parentNode.id;
     const difficulty = e.target.id.split("_")[1];
+    console.log(difficulty);
     props.getData(tag, difficulty);
   };
 

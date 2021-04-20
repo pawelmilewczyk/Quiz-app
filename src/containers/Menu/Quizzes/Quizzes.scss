@@ -2,6 +2,7 @@
 
 .MuiGrid-item {
   max-width: 30em;
+  width: 25rem;
   margin: 1rem !important;
   padding: 2rem;
   border: $border-grey-light;
@@ -42,6 +43,12 @@
       &:hover {
         color: $font-color-primary;
       }
+    }
+
+    #JavaScript_Medium,
+    #JavaScript_Hard,
+    #JavaScript_ {
+      display: none;
     }
   }
 }

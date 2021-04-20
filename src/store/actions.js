@@ -25,16 +25,14 @@ export const getData = (tag, difficulty = "") => {
     instance
       .get()
       .then((res) => {
-        // console.log(res.data);
-        res.data.map((el) => {
+        res.data.map((el) =>
           data.push({
             question: el.question,
             answers: el.answers,
-            correctAnswer: el.correct_answer,
             correctAnswers: el.correct_answers,
             multipleCorrectAnswers: el.multiple_correct_answers,
-          });
-        });
+          })
+        );
         dispatch(storeData(data));
       })
       .catch((err) => console.log(err));
