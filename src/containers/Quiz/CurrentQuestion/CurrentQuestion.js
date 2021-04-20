@@ -1,7 +1,6 @@
 import classes from "./CurrentQuestion.module.scss";
 import * as actions from "../../../store/actions";
 import { connect } from "react-redux";
-import Button from "../../../components/Button/Button";
 
 const CurrentQuestion = (props) => {
   const currentData = props.data[props.currentQuestion];
@@ -18,13 +17,6 @@ const CurrentQuestion = (props) => {
   }
 
   const answersLength = answers.filter((el) => el.answer).length;
-  const questionsNumber = props.data.length;
-
-  const nextQuestionHandler = () =>
-    props.setQuestion(props.currentQuestion + 1);
-
-  const previousQuestionHandler = () =>
-    props.setQuestion(props.currentQuestion - 1);
 
   return (
     <div className={classes.CurrentQuestion}>
@@ -42,21 +34,6 @@ const CurrentQuestion = (props) => {
           ) : null
         )}
       </div>
-      <Button
-        type="prevBtn"
-        clicked={previousQuestionHandler}
-        currentQuestion={props.currentQuestion}
-      >
-        Previous question
-      </Button>
-      <Button
-        type="nextBtn"
-        clicked={nextQuestionHandler}
-        questionsNumber={questionsNumber}
-        currentQuestion={props.currentQuestion}
-      >
-        Next question
-      </Button>
     </div>
   );
 };
