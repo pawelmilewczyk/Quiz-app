@@ -31,6 +31,7 @@ export const getData = (tag, difficulty = "") => {
             answers: el.answers,
             correctAnswers: el.correct_answers,
             multipleCorrectAnswers: el.multiple_correct_answers,
+            tags: el.tags[0].name,
           })
         );
         dispatch(storeData(data));
