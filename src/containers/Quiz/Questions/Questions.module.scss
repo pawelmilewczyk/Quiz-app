@@ -30,15 +30,16 @@
       box-shadow: $box-shadow;
     }
   }
-  .active {
-    color: $color-white;
-    background-color: $font-color-secondary;
-    border: 1px solid transparent;
-  }
 
   .visited {
     color: $font-color-primary;
     background-color: $color-white-darker;
+    border: 1px solid transparent;
+  }
+
+  .active {
+    color: $color-white;
+    background-color: $font-color-secondary;
     border: 1px solid transparent;
   }
 }

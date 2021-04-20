@@ -1,40 +1,31 @@
 import classes from "./Questions.module.scss";
+import { connect } from "react-redux";
 
 const Questions = (props) => {
+  const clickHandler = (e) => {
+    e.target
+      .closest("div")
+      .parentElement.childNodes.forEach((child) =>
+        child.classList.remove(classes.active)
+      );
+    e.target.closest("div").classList.add(classes.visited, classes.active);
+  };
+
   return (
-    <div className={classes.Grid}>
-      <div className={[classes.Grid_item, classes.visited].join(" ")}>
-        Question <span>1</span>
-      </div>
-      <div className={[classes.Grid_item, classes.visited].join(" ")}>
-        Question <span>2</span>
-      </div>
-      <div className={[classes.Grid_item, classes.visited].join(" ")}>
-        Question <span>3</span>
-      </div>
-      <div className={[classes.Grid_item, classes.visited].join(" ")}>
-        Question <span>4</span>
-      </div>
-      <div className={[classes.Grid_item, classes.active].join(" ")}>
-        Question <span>5</span>
-      </div>
-      <div className={classes.Grid_item}>
-        Question <span>6</span>
-      </div>
-      <div className={classes.Grid_item}>
-        Question <span>7</span>
-      </div>
-      <div className={classes.Grid_item}>
-        Question <span>8</span>
-      </div>
-      <div className={classes.Grid_item}>
-        Question <span>9</span>
-      </div>
-      <div className={classes.Grid_item}>
-        Question <span>10</span>
-      </div>
+    <div className={classes.Grid} onClick={clickHandler}>
+      {props.data.map((_, index) => (
+        <div className={classes.Grid_item} key={index} question={index}>
+          Question <span>{index + 1}</span>
+        </div>
+      ))}
     </div>
   );
 };
 
-export default Questions;
+const mapStateToProps = (state) => {
+  return {
+    data: state.data,
+  };
+};
+
+export default connect(mapStateToProps)(Questions);
