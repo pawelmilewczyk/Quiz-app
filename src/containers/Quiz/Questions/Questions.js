@@ -14,7 +14,15 @@ const Questions = (props) => {
   return (
     <div className={classes.Grid} onClick={clickHandler}>
       {props.data.map((_, index) => (
-        <div className={classes.Grid_item} key={index} question={index}>
+        <div
+          className={
+            index === 0
+              ? [classes.Grid_item, classes.visited, classes.active].join(" ")
+              : classes.Grid_item
+          }
+          key={index}
+          question={index}
+        >
           Question <span>{index + 1}</span>
         </div>
       ))}
