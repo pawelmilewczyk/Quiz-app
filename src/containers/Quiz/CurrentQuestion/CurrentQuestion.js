@@ -5,13 +5,24 @@ import { connect } from "react-redux";
 const CurrentQuestion = (props) => {
   const currentData = props.data[props.currentQuestion];
   const answers = [];
-  if (currentData)
+  let correctAnswersLength = [];
+  if (currentData) {
     for (const [key, value] of Object.entries(currentData.answers)) {
       answers.push({ index: key, answer: value });
     }
 
+    correctAnswersLength = Object.values(currentData.correctAnswers).filter(
+      (answer) => answer === "true"
+    ).length;
+  }
+
+  const answersLength = answers.filter((el) => el.answer).length;
+
   return (
     <div className={classes.CurrentQuestion}>
+      <div className={classes.correctAnswers}>
+        Correct Answers {correctAnswersLength}/{answersLength}
+      </div>
       <div className={classes.question}>{currentData?.question}</div>
       <div className={classes.answers}>
         {answers.map((el) =>
