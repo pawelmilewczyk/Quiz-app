@@ -1,16 +1,19 @@
 @import "../../../sass/variables.scss";
 @import "../../../sass/mixins.scss";
 
-.MuiGrid-container {
+.Flex {
   margin-top: 5rem;
   max-width: 100rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 
   @include media_maxWidth($breakpoint-xs) {
     margin-top: 3rem;
   }
 }
 
-.MuiGrid-item {
+.Flex_item {
   max-width: 30em;
   width: 25rem;
   margin: 1rem !important;

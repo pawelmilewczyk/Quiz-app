@@ -1,5 +1,4 @@
 import "./Quizzes.scss";
-import { Grid } from "@material-ui/core";
 
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions";
@@ -8,12 +7,11 @@ const Quizzes = (props) => {
   const clickHandler = (e) => {
     const tag = e.target.parentNode.id;
     const difficulty = e.target.id.split("_")[1];
-    console.log(difficulty);
     props.getData(tag, difficulty);
   };
 
   const renderQuiz = (title) => (
-    <Grid item key={title}>
+    <div className="Flex_item" key={title}>
       <div className="title">{title}</div>
       <div className="levels" id={title}>
         <span onClick={clickHandler} id={title + "_Easy"}>
@@ -29,15 +27,15 @@ const Quizzes = (props) => {
           Random
         </span>
       </div>
-    </Grid>
+    </div>
   );
 
   return (
-    <Grid container justify="center">
+    <div className="Flex">
       {document.getElementById("searchBar")?.value
         ? props.filteredTitles.map((title) => renderQuiz(title))
         : props.titles.map((title) => renderQuiz(title))}
-    </Grid>
+    </div>
   );
 };
 
