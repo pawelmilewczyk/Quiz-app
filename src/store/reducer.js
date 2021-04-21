@@ -5,6 +5,7 @@ const initialState = {
   filteredTitles: [],
   data: [],
   currentQuestion: 0,
+  correctAnswers: [],
   givenAnswers: [
     [false, false, false, false, false, false],
     [false, false, false, false, false, false],
@@ -17,7 +18,7 @@ const initialState = {
     [false, false, false, false, false, false],
     [false, false, false, false, false, false],
   ],
-  correctAnswers: [],
+  score: 0,
 };
 
 const reducer = (state = initialState, action) => {
@@ -37,6 +38,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         givenAnswers: action.answers,
       };
+    case actionTypes.SET_SCORE:
+      return { ...state, score: action.score };
     default:
       return state;
   }

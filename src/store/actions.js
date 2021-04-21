@@ -63,3 +63,10 @@ export const setAnswer = (answers) => {
     answers: answers,
   };
 };
+
+export const setScore = (score) => {
+  return {
+    type: actionTypes.SET_SCORE,
+    score: score,
+  };
+};

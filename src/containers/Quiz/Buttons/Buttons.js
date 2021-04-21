@@ -15,7 +15,19 @@ const Buttons = (props) => {
   const previousQuestionHandler = () =>
     props.setQuestion(props.currentQuestion - 1);
 
-  const submitHandler = () => {};
+  const submitHandler = () => {
+    const string = props.givenAnswers.map((el) =>
+      el.map((el) => el.toString())
+    );
+    let score = 0;
+    for (let i = 0; i < props.correctAnswers.length; i++) {
+      if (JSON.stringify(props.correctAnswers[i]) === JSON.stringify(string[i]))
+        score++;
+    }
+    props.setScore(score);
+    console.log(`Your score: ${score} / ${props.correctAnswers.length}`);
+    console.log(score);
+  };
 
   return (
     <Aux>
@@ -60,6 +72,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setQuestion: (index) => dispatch(actions.setCurrentQuestion(index)),
+    setScore: (score) => dispatch(actions.setScore(score)),
   };
 };
 
