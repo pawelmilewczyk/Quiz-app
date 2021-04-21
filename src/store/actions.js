@@ -53,3 +53,10 @@ export const setCurrentQuestion = (index) => {
     question: index,
   };
 };
+
+export const setAnswer = (answers) => {
+  return {
+    type: actionTypes.SET_ANSWER,
+    answers: answers,
+  };
+};
