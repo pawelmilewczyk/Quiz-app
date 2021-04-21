@@ -15,6 +15,7 @@ const StyledButton = (props) => {
   }
 
   if (props.type === "submit") {
+    buttonClass = [classes.Button, classes.Tertiary].join(" ");
   }
 
   return (
