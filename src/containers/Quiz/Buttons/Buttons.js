@@ -35,7 +35,9 @@ const Buttons = (props) => {
         </Button>
       </div>
       <Horizontal>Finish quiz</Horizontal>
-      <div style={{ display: "grid", padding: "2rem" }}>
+      <div
+        style={{ display: "grid", justifyContent: "center", padding: "2rem" }}
+      >
         <Button type="submit">Submit Answers</Button>
       </div>
     </Aux>

@@ -8,8 +8,7 @@ import React, { useState } from "react";
 const CurrentQuestion = (props) => {
   // FORCE UPDATE
   function useForceUpdate() {
-    const [value, setValue] = useState(0);
-    console.log(value);
+    const [, setValue] = useState(0);
     return () => setValue((value) => value + 1);
   }
   const forceUpdate = useForceUpdate();
@@ -32,7 +31,6 @@ const CurrentQuestion = (props) => {
 
   let updatedAnswers = props.givenAnswers;
   const changeHandler = (e) => {
-    console.log(e.target.checked);
     updatedAnswers[props.currentQuestion][e.target.value] = !updatedAnswers[
       props.currentQuestion
     ][e.target.value];
