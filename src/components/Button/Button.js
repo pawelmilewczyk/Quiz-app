@@ -2,7 +2,7 @@ import { Button } from "@material-ui/core";
 import classes from "./Button.module.scss";
 
 const StyledButton = (props) => {
-  let buttonClass = [classes.Button];
+  let buttonClass = [classes.Button].join(" ");
 
   if (props.type === "nextBtn") {
     buttonClass = [classes.Button, classes.Secondary].join(" ");
