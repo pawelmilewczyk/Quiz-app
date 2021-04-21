@@ -6,7 +6,7 @@ import Buttons from "./Buttons/Buttons";
 
 const Quiz = (props) => {
   return (
-    <div className="Container">
+    <div>
       <Title>Course name</Title>
       <Questions />
       <Horizontal>Current Question</Horizontal>

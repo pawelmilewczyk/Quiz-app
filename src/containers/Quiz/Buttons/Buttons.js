@@ -1,6 +1,7 @@
 import Button from "../../../components/Button/Button";
 import Horizontal from "../../../components/Horizontal/Horizontal";
 import Aux from "../../../components/Aux/Aux";
+import "./Buttons.scss";
 
 import * as actions from "../../../store/actions";
 import { connect } from "react-redux";
@@ -16,7 +17,7 @@ const Buttons = (props) => {
 
   return (
     <Aux>
-      <div>
+      <div className="NavButtons">
         <Button
           type="prevBtn"
           clicked={previousQuestionHandler}
@@ -34,6 +35,9 @@ const Buttons = (props) => {
         </Button>
       </div>
       <Horizontal>Finish quiz</Horizontal>
+      <div style={{ display: "grid", padding: "2rem" }}>
+        <Button type="submit">Submit Answers</Button>
+      </div>
     </Aux>
   );
 };

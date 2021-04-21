@@ -1,0 +1,15 @@
+@import "../../../sass/mixins.scss";
+@import "../../../sass/variables.scss";
+
+.NavButtons {
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem;
+
+  @include media_maxWidth($breakpoint-sm) {
+    justify-content: center;
+  }
+  button:nth-of-type(2) {
+    margin-left: 2rem;
+  }
+}
