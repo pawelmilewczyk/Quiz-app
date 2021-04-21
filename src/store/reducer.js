@@ -17,6 +17,7 @@ const initialState = {
     [false, false, false, false, false, false],
     [false, false, false, false, false, false],
   ],
+  correctAnswers: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -24,7 +25,11 @@ const reducer = (state = initialState, action) => {
     case actionTypes.UPDATE_TITLES:
       return { ...state, filteredTitles: action.titles };
     case actionTypes.GET_DATA:
-      return { ...state, data: action.data };
+      return {
+        ...state,
+        data: action.data,
+        correctAnswers: action.correctAnswers,
+      };
     case actionTypes.SET_CURRENT_QUESTION:
       return { ...state, currentQuestion: action.question };
     case actionTypes.SET_ANSWER:

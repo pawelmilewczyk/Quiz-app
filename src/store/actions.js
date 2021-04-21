@@ -2,9 +2,12 @@ import * as actionTypes from "./actionTypes";
 import axios from "axios";
 
 const storeData = (data) => {
+  const correctAnswers = [];
+  data.map((el) => correctAnswers.push(Object.values(el.correctAnswers)));
   return {
     type: actionTypes.GET_DATA,
     data: data,
+    correctAnswers: correctAnswers,
   };
 };
 

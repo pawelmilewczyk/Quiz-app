@@ -15,6 +15,8 @@ const Buttons = (props) => {
   const previousQuestionHandler = () =>
     props.setQuestion(props.currentQuestion - 1);
 
+  const submitHandler = () => {};
+
   return (
     <Aux>
       <div className="NavButtons">
@@ -38,7 +40,9 @@ const Buttons = (props) => {
       <div
         style={{ display: "grid", justifyContent: "center", padding: "2rem" }}
       >
-        <Button type="submit">Submit Answers</Button>
+        <Button type="submit" clicked={submitHandler}>
+          Submit Answers
+        </Button>
       </div>
     </Aux>
   );
@@ -48,6 +52,8 @@ const mapStateToProps = (state) => {
   return {
     data: state.data,
     currentQuestion: state.currentQuestion,
+    givenAnswers: state.givenAnswers,
+    correctAnswers: state.correctAnswers,
   };
 };
 
