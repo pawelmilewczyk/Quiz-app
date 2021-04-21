@@ -13,18 +13,17 @@ const CurrentQuestion = (props) => {
   }
   const forceUpdate = useForceUpdate();
 
-  let currentData = props.data[props.currentQuestion];
   const answers = [];
   let correctAnswersLength = [];
 
-  if (currentData) {
-    for (const [key, value] of Object.entries(currentData.answers)) {
-      answers.push({ index: key, answer: value });
+  if (props.currentData) {
+    for (const [key, value] of Object.entries(props.currentData.answers)) {
+      answers.push({ name: key, answer: value });
     }
 
-    correctAnswersLength = Object.values(currentData.correctAnswers).filter(
-      (answer) => answer === "true"
-    ).length;
+    correctAnswersLength = Object.values(
+      props.currentData.correctAnswers
+    ).filter((answer) => answer === "true").length;
   }
 
   const answersLength = answers.filter((el) => el.answer).length;
@@ -40,11 +39,11 @@ const CurrentQuestion = (props) => {
   let renderedAnswers = answers.map((el, i) =>
     el.answer ? (
       <FormControlLabel
-        key={el.index}
+        key={el.name}
         control={
           <Checkbox
             checked={updatedAnswers[props.currentQuestion][i]}
-            name={`${el.index}${props.currentQuestion}`}
+            name={el.name}
             value={i}
             color="default"
             onChange={changeHandler}
@@ -61,7 +60,7 @@ const CurrentQuestion = (props) => {
       <div className="correctAnswers">
         Correct Answers {correctAnswersLength}/{answersLength}
       </div>
-      <div className="question">{currentData?.question}</div>
+      <div className="question">{props.currentData?.question}</div>
       <div className="answers">{renderedAnswers}</div>
     </div>
   );
@@ -69,7 +68,7 @@ const CurrentQuestion = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    data: state.data,
+    currentData: state.data[state.currentQuestion],
     currentQuestion: state.currentQuestion,
     givenAnswers: state.givenAnswers,
   };
