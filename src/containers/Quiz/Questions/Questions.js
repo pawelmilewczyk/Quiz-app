@@ -9,6 +9,7 @@ const Questions = (props) => {
     div.parentElement.childNodes.forEach((child) => {
       child.classList.remove(classes.active);
     });
+    div.classList.add(classes.active);
     props.setQuestion(div.childNodes[1].innerHTML - 1);
   };
 
