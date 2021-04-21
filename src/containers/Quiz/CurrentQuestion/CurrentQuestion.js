@@ -1,6 +1,6 @@
-import classes from "./CurrentQuestion.module.scss";
-import * as actions from "../../../store/actions";
+import "./CurrentQuestion.scss";
 import { connect } from "react-redux";
+import { FormControlLabel, Checkbox } from "@material-ui/core";
 
 const CurrentQuestion = (props) => {
   const currentData = props.data[props.currentQuestion];
@@ -19,18 +19,19 @@ const CurrentQuestion = (props) => {
   const answersLength = answers.filter((el) => el.answer).length;
 
   return (
-    <div className={classes.CurrentQuestion}>
-      <div className={classes.correctAnswers}>
+    <div className="CurrentQuestion">
+      <div className="correctAnswers">
         Correct Answers {correctAnswersLength}/{answersLength}
       </div>
-      <div className={classes.question}>{currentData?.question}</div>
-      <div className={classes.answers}>
+      <div className="question">{currentData?.question}</div>
+      <div className="answers">
         {answers.map((el) =>
           el.answer ? (
-            <div className={classes.input_group} key={el.index}>
-              <input type="checkbox" name={el.index} />
-              <label>{el.answer}</label>
-            </div>
+            <FormControlLabel
+              key={el.index}
+              control={<Checkbox name={el.index} color="default" />}
+              label={el.answer}
+            ></FormControlLabel>
           ) : null
         )}
       </div>
@@ -45,10 +46,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setQuestion: (index) => dispatch(actions.setCurrentQuestion(index)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CurrentQuestion);
+export default connect(mapStateToProps)(CurrentQuestion);

@@ -1,0 +1,41 @@
+@import "../../../sass/variables.scss";
+
+.CurrentQuestion {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+
+  .correctAnswers {
+    align-self: flex-end;
+    font-size: $font-size-small;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: $color-tertiary;
+    padding-bottom: 1rem;
+  }
+  .question {
+    font-size: $font-size-large;
+    font-weight: 300;
+    padding: 1rem 0;
+    min-height: 10rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .answers {
+    display: flex;
+    flex-direction: column;
+    min-height: 24rem;
+
+    .MuiTypography-root {
+      font-size: $font-size-normal;
+      font-weight: 300;
+    }
+
+    .MuiSvgIcon-root {
+      width: 2rem;
+      height: 2rem;
+      fill: $color-tertiary;
+    }
+  }
+}
