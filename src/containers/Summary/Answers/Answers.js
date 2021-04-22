@@ -2,22 +2,36 @@ import { connect } from "react-redux";
 // import Title from "../../../components/Title/Title";
 import Horizontal from "../../../components/Horizontal/Horizontal";
 // import Paragraph from "../../../components/Paragraph/Paragraph";
-import { FormControlLabel, Checkbox } from "@material-ui/core";
+import { FormControlLabel, Checkbox, colors } from "@material-ui/core";
 import "./Answers.scss";
 
 const Answers = (props) => {
-  const renderAnswer = (index, answers) => {
-    let indexes = [];
-    answers[index].map((el, indexOfTrue) => {
-      if (el === "true") indexes.push(indexOfTrue);
-    });
+  //
+  //
+  //
+
+  const renderAnswer = (index, answers, isCorrectAnswersArray) => {
+    const isCorrect =
+      JSON.stringify(props.correctAnswers[index]) ===
+      JSON.stringify(props.givenAnswers[index]);
+
+    let checkboxStyle;
+    if (isCorrectAnswersArray || (!isCorrectAnswersArray && isCorrect))
+      checkboxStyle = { color: "green" };
+
+    if (!isCorrectAnswersArray && !isCorrect) checkboxStyle = { color: "red" };
+
+    const indexesWithCorrectAnswers = answers[index].map((el, indexOfTrue) =>
+      el === "true" ? indexOfTrue : null
+    );
 
     return Object.values(props.data[index]?.answers).map((answer, i) => {
       if (answer) {
-        let checkbox;
-        if (indexes.includes(i))
-          checkbox = <Checkbox checked={true} disabled={true} />;
-        else checkbox = <Checkbox checked={false} disabled={true} />;
+        const checkbox = indexesWithCorrectAnswers.includes(i) ? (
+          <Checkbox checked={true} style={checkboxStyle} disabled={true} />
+        ) : (
+          <Checkbox checked={false} disabled={true} />
+        );
         return (
           <FormControlLabel
             key={Math.random()}
@@ -26,6 +40,7 @@ const Answers = (props) => {
           />
         );
       }
+      return null;
     });
   };
 
@@ -39,11 +54,11 @@ const Answers = (props) => {
       </div>
       <div className="Answers Answers_Given">
         <div className="Answers_Title">Your Answers</div>
-        {renderAnswer(index, props.givenAnswers)}
+        {renderAnswer(index, props.givenAnswers, false)}
       </div>
       <div className="Answers Answers_Correct">
         <div className="Answers_Title">Correct Answers</div>
-        {renderAnswer(index, props.correctAnswers)}
+        {renderAnswer(index, props.correctAnswers, true)}
       </div>
       <div className="feedback">GOOD</div>
     </div>
