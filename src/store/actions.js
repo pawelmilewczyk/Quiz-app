@@ -70,3 +70,15 @@ export const setScore = (score) => {
     score: score,
   };
 };
+
+export const playAgain = () => {
+  return {
+    type: actionTypes.PLAY_AGAIN,
+  };
+};
+
+export const setInitState = () => {
+  return {
+    type: actionTypes.SET_INIT_STATE,
+  };
+};

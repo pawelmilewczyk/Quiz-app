@@ -40,6 +40,44 @@ const reducer = (state = initialState, action) => {
       };
     case actionTypes.SET_SCORE:
       return { ...state, score: action.score };
+    case actionTypes.PLAY_AGAIN:
+      return {
+        ...state,
+        currentQuestion: 0,
+        givenAnswers: [
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+        ],
+        score: 0,
+      };
+    case actionTypes.SET_INIT_STATE:
+      return {
+        ...state,
+        data: [],
+        correctAnswers: [],
+        currentQuestion: 0,
+        givenAnswers: [
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+        ],
+        score: 0,
+      };
     default:
       return state;
   }
