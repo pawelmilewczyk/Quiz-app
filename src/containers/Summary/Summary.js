@@ -1,17 +1,15 @@
-import { connect } from "react-redux";
+import Button from "../../components/Button/Button";
+import Score from "./Score/Score";
 
 const Summary = (props) => {
-  return <div>Summary</div>;
+  return (
+    <div>
+      <Score />
+      <div>Questions</div>
+      <Button>Try again</Button>
+      <Button>Select new quiz</Button>
+    </div>
+  );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    data: state.data,
-    tag: state.data[0]?.tags,
-    score: state.score,
-    correctAnswers: state.correctAnswers,
-    givenAnswers: state.givenAnswers,
-  };
-};
-
-export default connect(mapStateToProps)(Summary);
+export default Summary;
