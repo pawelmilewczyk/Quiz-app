@@ -20,7 +20,7 @@ const Quiz = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    tag: state.data[0].tags,
+    tag: state.data[0]?.tags,
   };
 };
 
