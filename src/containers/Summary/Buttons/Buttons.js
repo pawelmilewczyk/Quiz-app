@@ -13,8 +13,8 @@ const Buttons = (props) => {
           marginTop: "4rem",
         }}
       >
-        <Button>Try again</Button>
-        <Button>Select new quiz</Button>
+        <Button type="nextBtn">Try again</Button>
+        <Button type="nextBtn">Select new quiz</Button>
       </div>
     </Aux>
   );

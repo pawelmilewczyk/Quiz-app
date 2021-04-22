@@ -1,7 +1,7 @@
 @import "../../../sass/variables.scss";
 
 .Question_Container {
-  margin: 2rem 0;
+  margin: 3rem;
   border: $border-grey-light;
   box-shadow: $box-shadow-light;
   border-radius: 5px;
@@ -9,6 +9,10 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+
+  &:last-child {
+    margin-bottom: 4rem;
+  }
 
   .Question {
     grid-column: 1/-1;

@@ -5,9 +5,5 @@
   font-size: $font-size-large;
   font-weight: 200;
   text-align: center;
-  padding: 6rem;
-
-  @include media_maxWidth($breakpoint-xs) {
-    padding: 4rem 2rem;
-  }
+  padding: 2rem;
 }
