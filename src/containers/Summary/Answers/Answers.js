@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 // import Title from "../../../components/Title/Title";
 import Horizontal from "../../../components/Horizontal/Horizontal";
 // import Paragraph from "../../../components/Paragraph/Paragraph";
-import { FormControlLabel, Checkbox, colors } from "@material-ui/core";
+import { FormControlLabel, Checkbox } from "@material-ui/core";
 import "./Answers.scss";
 
 const Answers = (props) => {
@@ -10,14 +10,10 @@ const Answers = (props) => {
   //
   //
 
-  const renderAnswer = (index, answers, isCorrectAnswersArray) => {
-    const isCorrect =
-      JSON.stringify(props.correctAnswers[index]) ===
-      JSON.stringify(props.givenAnswers[index]);
-
+  const renderAnswer = (index, answers, isCorrectAnswersArray, isCorrect) => {
     let checkboxStyle;
     if (isCorrectAnswersArray || (!isCorrectAnswersArray && isCorrect))
-      checkboxStyle = { color: "green" };
+      checkboxStyle = { color: "#32cd32" };
 
     if (!isCorrectAnswersArray && !isCorrect) checkboxStyle = { color: "red" };
 
@@ -44,25 +40,36 @@ const Answers = (props) => {
     });
   };
 
-  const content = props.data.map((el, index) => (
-    <div className="Question_Container" key={index}>
-      <div className="Question">
-        Question <span>{index + 1}</span>
+  const content = props.data.map((el, index) => {
+    const isCorrect =
+      JSON.stringify(props.correctAnswers[index]) ===
+      JSON.stringify(props.givenAnswers[index]);
+
+    return (
+      <div className="Question_Container" key={index}>
+        <div className="Question">
+          Question <span>{index + 1}</span>
+        </div>
+        <div className="Question_Content Question">
+          Question: <span>{el.question}</span>
+        </div>
+        <div className="Answers">
+          <div className="Answers_Title">Your Answers</div>
+          {renderAnswer(index, props.givenAnswers, false, isCorrect)}
+        </div>
+        <div className="Answers">
+          <div className="Answers_Title">Correct Answers</div>
+          {renderAnswer(index, props.correctAnswers, true)}
+        </div>
+        <div
+          className="feedback"
+          style={isCorrect ? { color: "#32cd32" } : { color: "red" }}
+        >
+          {isCorrect ? "GOOD! 👍" : "WRONG"}
+        </div>
       </div>
-      <div className="Question_Content Question">
-        Question: <span>{el.question}</span>
-      </div>
-      <div className="Answers Answers_Given">
-        <div className="Answers_Title">Your Answers</div>
-        {renderAnswer(index, props.givenAnswers, false)}
-      </div>
-      <div className="Answers Answers_Correct">
-        <div className="Answers_Title">Correct Answers</div>
-        {renderAnswer(index, props.correctAnswers, true)}
-      </div>
-      <div className="feedback">GOOD</div>
-    </div>
-  ));
+    );
+  });
 
   return (
     <div>

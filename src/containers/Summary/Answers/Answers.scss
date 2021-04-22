@@ -1,6 +1,9 @@
+@import "../../../sass/variables.scss";
+
 .Question_Container {
   margin: 2rem 0;
-  border: 1px solid #eee;
+  border: $border-grey-light;
+  box-shadow: $box-shadow-light;
   border-radius: 5px;
   padding: 2rem;
   display: grid;
@@ -10,7 +13,7 @@
   .Question {
     grid-column: 1/-1;
     text-align: center;
-    font-size: 1.6rem;
+    font-size: $font-size-normal;
     text-transform: uppercase;
     font-weight: 300;
   }
@@ -25,7 +28,7 @@
   .Answers {
     display: flex;
     flex-direction: column;
-    border: 1px solid #eee;
+    border: $border-grey-light;
     border-radius: 5px;
     padding: 2rem;
 
@@ -36,26 +39,14 @@
       margin-bottom: 2rem;
     }
 
-    .MuiSvgIcon-root {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
-    .correct {
-      .MuiSvgIcon-root {
-        fill: green;
-      }
-    }
-
-    .wrong {
-      .MuiSvgIcon-root {
-        fill: red;
-      }
+    .MuiFormControlLabel-root {
+      padding-top: 1rem;
     }
   }
   .feedback {
     grid-column: 1/-1;
     text-align: center;
     font-weight: 300;
-    font-size: 2rem;
+    font-size: $font-size-large;
   }
 }
