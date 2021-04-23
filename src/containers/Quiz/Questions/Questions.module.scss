@@ -1,13 +1,22 @@
 @import "../../../sass/variables.scss";
+@import "../../../sass/mixins.scss";
 
 .Grid {
+  // display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(max-content, 11rem));
+  // align-content: center;
+  // justify-content: center;
+  // gap: 2rem 5rem;
+  // padding: 2rem;
+  // margin-bottom: 4rem;
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(max-content, 11rem));
-  align-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(0.5rem, 10rem));
+  gap: 2rem 4rem;
+  max-width: 100rem;
   justify-content: center;
-  gap: 2rem 5rem;
-  padding: 2rem;
   margin-bottom: 4rem;
+  padding: 3rem;
 
   .Grid_item {
     display: flex;
