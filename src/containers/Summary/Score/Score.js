@@ -5,7 +5,10 @@ import Paragraph from "../../../components/Paragraph/Paragraph";
 import "./Score.scss";
 
 const Score = (props) => {
-  const score = (props.score / props.questions).toFixed(0) * 100;
+  const score =
+    props.questions !== 0
+      ? ((props.score / props.questions) * 100).toFixed(0)
+      : 0;
   let feedback;
   if (score <= 30) feedback = "Oh, you have to study more! 😩 Try again!";
   if (score > 30 && score <= 50)
@@ -14,7 +17,7 @@ const Score = (props) => {
     feedback = "Not bad! Try again and improve your score! 🤓";
   if (score > 75 && score <= 100)
     feedback = "Good job! Almost perfect score, try again and get 100%! 😎";
-  if (score === 0)
+  if (+score === 100)
     feedback =
       "Perfect score! Congratulations! Now, you can choose another course! 💪";
   return (

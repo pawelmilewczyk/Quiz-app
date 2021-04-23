@@ -25,8 +25,6 @@ const Buttons = (props) => {
         score++;
     }
     props.setScore(score);
-    console.log(`Your score: ${score} / ${props.correctAnswers.length}`);
-    console.log(score);
   };
 
   return (
