@@ -1,4 +1,5 @@
 import Title from "../../components/Title/Title";
+import Spinner from "../../components/Spinner/Spinner";
 import Horizontal from "../../components/Horizontal/Horizontal";
 import Aux from "../../components/Aux/Aux";
 import Questions from "./Questions/Questions";
@@ -7,7 +8,7 @@ import Buttons from "./Buttons/Buttons";
 import { connect } from "react-redux";
 
 const Quiz = (props) => {
-  return (
+  return props.isData ? (
     <Aux>
       <Title>{props.tag}</Title>
       <Questions />
@@ -16,12 +17,15 @@ const Quiz = (props) => {
       <Horizontal />
       <Buttons />
     </Aux>
+  ) : (
+    <Spinner />
   );
 };
 
 const mapStateToProps = (state) => {
   return {
     tag: state.data[0]?.tags,
+    isData: state.data.length,
   };
 };
 
