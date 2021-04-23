@@ -1,18 +1,5 @@
 import * as actionTypes from "./actionTypes";
 
-const array = [
-  [false, false, false, false, false, false],
-  [false, false, false, false, false, false],
-  [false, false, false, false, false, false],
-  [false, false, false, false, false, false],
-  [false, false, false, false, false, false],
-  [false, false, false, false, false, false],
-  [false, false, false, false, false, false],
-  [false, false, false, false, false, false],
-  [false, false, false, false, false, false],
-  [false, false, false, false, false, false],
-];
-
 const initialState = {
   titles: ["JavaScript", "HTML", "Linux", "PHP", "Docker"],
   filteredTitles: [],
@@ -20,7 +7,18 @@ const initialState = {
   data: [],
   currentQuestion: 0,
   correctAnswers: [],
-  givenAnswers: array,
+  givenAnswers: [
+    [false, false, false, false, false, false],
+    [false, false, false, false, false, false],
+    [false, false, false, false, false, false],
+    [false, false, false, false, false, false],
+    [false, false, false, false, false, false],
+    [false, false, false, false, false, false],
+    [false, false, false, false, false, false],
+    [false, false, false, false, false, false],
+    [false, false, false, false, false, false],
+    [false, false, false, false, false, false],
+  ],
   score: 0,
 };
 
@@ -47,7 +45,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         currentQuestion: 0,
-        givenAnswers: array,
+        givenAnswers: [
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+        ],
         score: 0,
       };
     case actionTypes.SET_INIT_STATE:
@@ -57,11 +66,38 @@ const reducer = (state = initialState, action) => {
         data: [],
         correctAnswers: [],
         currentQuestion: 0,
-        givenAnswers: array,
+        givenAnswers: [
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+        ],
         score: 0,
       };
     case actionTypes.START_QUIZ:
-      return { ...state, startQuiz: true };
+      return {
+        ...state,
+        givenAnswers: [
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+          [false, false, false, false, false, false],
+        ],
+        startQuiz: true,
+        currentQuestion: 0,
+      };
     default:
       return state;
   }
