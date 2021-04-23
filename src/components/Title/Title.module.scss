@@ -1,8 +1,13 @@
 @import "../../sass/variables.scss";
+@import "../../sass/mixins.scss";
 
 .Title {
   font-size: $font-size-title;
   font-weight: 300;
   text-align: center;
   padding-bottom: 4rem;
+
+  @include media_maxWidth($breakpoint-xs) {
+    padding-bottom: 1rem;
+  }
 }

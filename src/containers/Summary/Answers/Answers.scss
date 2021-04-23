@@ -15,7 +15,7 @@
     box-shadow: none;
     margin: 0;
     margin-bottom: 1rem;
-    gap: 1rem;
+    gap: 2rem 1rem;
   }
 
   &:last-child {
@@ -43,6 +43,10 @@
     border: $border-grey-light;
     border-radius: 5px;
     padding: 2rem;
+
+    @include media_maxWidth($breakpoint-xs) {
+      grid-column: 1/-1;
+    }
 
     &_Title {
       text-align: center;

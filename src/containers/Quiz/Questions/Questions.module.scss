@@ -18,6 +18,10 @@
   margin-bottom: 4rem;
   padding: 3rem;
 
+  @include media_maxWidth($breakpoint-xs) {
+    margin-bottom: 1.5rem;
+  }
+
   .Grid_item {
     display: flex;
     flex-direction: column;
