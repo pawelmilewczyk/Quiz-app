@@ -37,7 +37,9 @@
     font-size: $font-size-small;
     font-weight: 300;
 
-    span {
+    a:link,
+    a:visited {
+      text-decoration: none;
       cursor: pointer;
       color: rgba($color-secondary, 0.3);
       padding: 0.5rem;
@@ -48,13 +50,13 @@
         transform: scale(1.15);
         color: $color-secondary;
       }
-    }
 
-    .random {
-      color: rgba($color-primary, 0.5);
+      & + .random {
+        color: rgba($color-primary, 0.5);
 
-      &:hover {
-        color: $color-primary;
+        &:hover {
+          color: $color-primary;
+        }
       }
     }
 

@@ -16,25 +16,22 @@ const Quizzes = (props) => {
     <div className="Flex_item" key={title}>
       <div className="title">{title}</div>
       <div className="levels" id={title}>
-        <Link to="/quiz">
-          <span onClick={clickHandler} id={title + "_Easy"}>
-            Easy
-          </span>
+        <Link to="/quiz" id={title + "_Easy"} onClick={clickHandler}>
+          Easy
         </Link>
-        <Link to="/quiz">
-          <span onClick={clickHandler} id={title + "_Medium"}>
-            Medium
-          </span>
+        <Link to="/quiz" id={title + "_Medium"} onClick={clickHandler}>
+          Medium
         </Link>
-        <Link to="/quiz">
-          <span onClick={clickHandler} id={title + "_Hard"}>
-            Hard
-          </span>
+        <Link to="/quiz" id={title + "_Hard"} onClick={clickHandler}>
+          Hard
         </Link>
-        <Link to="/quiz">
-          <span onClick={clickHandler} className="random" id={title + "_"}>
-            Random
-          </span>
+        <Link
+          to="/quiz"
+          id={title + "_"}
+          onClick={clickHandler}
+          className="random"
+        >
+          Random
         </Link>
       </div>
     </div>
