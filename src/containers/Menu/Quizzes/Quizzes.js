@@ -9,6 +9,7 @@ const Quizzes = (props) => {
   const clickHandler = (e) => {
     const tag = e.target.parentNode.id;
     const difficulty = e.target.id.split("_")[1];
+    props.startQuiz();
     props.getData(tag, difficulty);
   };
 
@@ -56,6 +57,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getData: (tag, difficulty) => dispatch(actions.getData(tag, difficulty)),
+    startQuiz: () => dispatch(actions.startQuiz()),
   };
 };
 

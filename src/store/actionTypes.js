@@ -5,3 +5,4 @@ export const SET_ANSWER = "SET_ANSWER";
 export const SET_SCORE = "SET_SCORE";
 export const PLAY_AGAIN = "PLAY_AGAIN";
 export const SET_INIT_STATE = "SET_INIT_STATE";
+export const START_QUIZ = "START_QUIZ";

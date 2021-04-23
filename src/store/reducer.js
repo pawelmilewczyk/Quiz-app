@@ -16,6 +16,7 @@ const array = [
 const initialState = {
   titles: ["JavaScript", "HTML", "Linux", "PHP", "Docker"],
   filteredTitles: [],
+  startQuiz: false,
   data: [],
   currentQuestion: 0,
   correctAnswers: [],
@@ -52,12 +53,15 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SET_INIT_STATE:
       return {
         ...state,
+        startQuiz: false,
         data: [],
         correctAnswers: [],
         currentQuestion: 0,
         givenAnswers: array,
         score: 0,
       };
+    case actionTypes.START_QUIZ:
+      return { ...state, startQuiz: true };
     default:
       return state;
   }

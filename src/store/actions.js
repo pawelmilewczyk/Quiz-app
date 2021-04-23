@@ -82,3 +82,9 @@ export const setInitState = () => {
     type: actionTypes.SET_INIT_STATE,
   };
 };
+
+export const startQuiz = () => {
+  return {
+    type: actionTypes.START_QUIZ,
+  };
+};

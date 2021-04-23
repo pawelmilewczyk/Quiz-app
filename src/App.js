@@ -2,19 +2,32 @@ import classes from "./App.module.scss";
 import Menu from "./containers/Menu/Menu";
 import Quiz from "./containers/Quiz/Quiz";
 import Summary from "./containers/Summary/Summary";
+import Aux from "./components/Aux/Aux";
 
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
-function App() {
+function App(props) {
+  const content = (
+    <Aux>
+      <Route path="/quiz" component={Quiz} />
+      <Route path="/summary" component={Summary} />
+    </Aux>
+  );
   return (
     <div className={classes.App}>
       <Switch>
-        <Route path="/quiz" component={Quiz} />
-        <Route path="/summary" component={Summary} />
-        <Route path="/" component={Menu} />
+        <Route exact path="/" component={Menu} />
+        {props.startQuiz ? content : <Redirect to="/" />}
       </Switch>
     </div>
   );
 }
 
-export default App;
+const mapStoreToProps = (state) => {
+  return {
+    startQuiz: state.startQuiz,
+  };
+};
+
+export default connect(mapStoreToProps)(App);
