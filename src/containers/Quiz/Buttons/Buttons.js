@@ -6,6 +6,8 @@ import "./Buttons.scss";
 import * as actions from "../../../store/actions";
 import { connect } from "react-redux";
 
+import { Link } from "react-router-dom";
+
 const Buttons = (props) => {
   const questionsNumber = props.data.length;
 
@@ -50,9 +52,11 @@ const Buttons = (props) => {
       <div
         style={{ display: "grid", justifyContent: "center", padding: "2rem" }}
       >
-        <Button type="submit" clicked={submitHandler}>
-          Submit Answers
-        </Button>
+        <Link to="/summary">
+          <Button type="submit" clicked={submitHandler}>
+            Submit Answers
+          </Button>
+        </Link>
       </div>
     </Aux>
   );

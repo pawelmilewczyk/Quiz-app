@@ -1,8 +1,11 @@
 import Button from "../../../components/Button/Button";
 import Horizontal from "../../../components/Horizontal/Horizontal";
 import Aux from "../../../components/Aux/Aux";
+
 import { connect } from "react-redux";
 import * as actions from "../../../store/actions";
+
+import { Link } from "react-router-dom";
 
 const Buttons = (props) => {
   const resetHandler = () => {
@@ -23,12 +26,16 @@ const Buttons = (props) => {
           marginTop: "4rem",
         }}
       >
-        <Button type="nextBtn" clicked={playAgainHandler}>
-          Try again
-        </Button>
-        <Button type="nextBtn" clicked={resetHandler}>
-          Select new quiz
-        </Button>
+        <Link to="/quiz">
+          <Button type="nextBtn" clicked={playAgainHandler}>
+            Try again
+          </Button>
+        </Link>
+        <Link to="/">
+          <Button type="nextBtn" clicked={resetHandler}>
+            Select new quiz
+          </Button>
+        </Link>
       </div>
     </Aux>
   );
