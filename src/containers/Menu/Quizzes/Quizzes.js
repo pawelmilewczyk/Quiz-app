@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Quizzes = (props) => {
   const clickHandler = (e) => {
-    const tag = e.target.parentNode.parentNode.id;
+    const tag = e.target.parentNode.id;
     const difficulty = e.target.id.split("_")[1];
     props.getData(tag, difficulty);
   };
