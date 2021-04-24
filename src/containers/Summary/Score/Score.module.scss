@@ -1,4 +1,5 @@
 @import "../../../sass/variables.scss";
+@import "../../../sass/mixins.scss";
 
 .Score {
   display: flex;
@@ -11,5 +12,12 @@
     text-align: center;
     font-size: $font-size-normal;
     font-weight: 200;
+  }
+}
+.Title {
+  margin-bottom: 4rem;
+
+  @include media_maxWidth($breakpoint-sm) {
+    margin-bottom: 2rem;
   }
 }

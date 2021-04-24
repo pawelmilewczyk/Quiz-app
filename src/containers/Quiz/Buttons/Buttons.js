@@ -50,7 +50,11 @@ const Buttons = (props) => {
       </div>
       <Horizontal>Finish quiz</Horizontal>
       <div
-        style={{ display: "grid", justifyContent: "center", padding: "2rem" }}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          paddingTop: "2rem",
+        }}
       >
         <Link to="/summary">
           <Button type="submit" clicked={submitHandler}>

@@ -23,16 +23,16 @@ const Buttons = (props) => {
         style={{
           display: "flex",
           justifyContent: "space-evenly",
-          marginTop: "4rem",
+          marginTop: "3rem",
         }}
       >
         <Link to="/quiz">
-          <Button type="nextBtn" clicked={playAgainHandler}>
+          <Button type="nav" clicked={playAgainHandler}>
             Try again
           </Button>
         </Link>
         <Link to="/">
-          <Button type="nextBtn" clicked={resetHandler}>
+          <Button type="nav" clicked={resetHandler}>
             Select new quiz
           </Button>
         </Link>

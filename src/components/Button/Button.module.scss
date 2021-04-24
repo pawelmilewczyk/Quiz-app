@@ -3,6 +3,10 @@
   font-size: $font-size-small !important;
   border-radius: 10rem !important;
   padding: 1rem 3rem !important;
+
+  &:disabled {
+    color: #ccc !important;
+  }
 }
 .Secondary {
   color: $color-secondary !important;
@@ -10,8 +14,4 @@
 
 .Tertiary {
   color: $color-tertiary !important;
-}
-
-.Hidden {
-  display: none !important;
 }

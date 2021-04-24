@@ -1,4 +1,4 @@
-import classes from "./App.module.scss";
+import "./App.scss";
 import Menu from "./containers/Menu/Menu";
 import Quiz from "./containers/Quiz/Quiz";
 import Summary from "./containers/Summary/Summary";
@@ -15,7 +15,7 @@ function App(props) {
     </Aux>
   );
   return (
-    <div className={classes.App}>
+    <div className="App">
       <Switch>
         <Route exact path="/" component={Menu} />
         {props.startQuiz ? content : <Redirect to="/" />}

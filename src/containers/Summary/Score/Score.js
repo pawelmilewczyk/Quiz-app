@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import Title from "../../../components/Title/Title";
 import Horizontal from "../../../components/Horizontal/Horizontal";
 import Paragraph from "../../../components/Paragraph/Paragraph";
-import "./Score.scss";
+import classes from "./Score.module.scss";
 
 const Score = (props) => {
   const score =
@@ -22,10 +22,10 @@ const Score = (props) => {
       "Perfect score! Congratulations! Now, you can choose another course! 💪";
   return (
     <div>
-      <Title>Quiz: {props.tag}</Title>
+      <Title style={classes.Title}>Quiz: {props.tag}</Title>
       <Horizontal>Quiz information</Horizontal>
       <Paragraph>{feedback}</Paragraph>
-      <div className="Score">
+      <div className={classes.Score}>
         <span>
           Your score:{" "}
           <span style={score < 50 ? { color: "red" } : { color: "green" }}>

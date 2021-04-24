@@ -3,15 +3,13 @@
 
 .App {
   max-width: 120rem;
-  margin: 5rem;
+  width: 100vw;
+  height: 100%;
   padding: 5rem;
   background-color: $color-white;
   color: $color-primary;
   box-shadow: $box-shadow;
 
-  @include media_maxWidth($breakpoint-md) {
-    margin: 0rem;
-  }
   @include media_maxWidth($breakpoint-sm) {
     padding: 4rem 2rem;
   }

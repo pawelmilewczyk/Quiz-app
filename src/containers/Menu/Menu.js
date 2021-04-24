@@ -8,7 +8,7 @@ import Quizzes from "./Quizzes/Quizzes";
 const Menu = (props) => {
   return (
     <div className={classes.Menu}>
-      <Title>Quiz App</Title>
+      <Title style={classes.Title}>Quiz App</Title>
       <Paragraph>
         Choose one of our quizzes! You can use the search bar to filter what you
         need
