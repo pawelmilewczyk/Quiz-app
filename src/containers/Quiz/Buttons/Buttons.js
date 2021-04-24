@@ -18,12 +18,12 @@ const Buttons = (props) => {
     props.setQuestion(props.currentQuestion - 1);
 
   const submitHandler = () => {
-    const string = props.givenAnswers.map((el) =>
-      el.map((el) => el.toString())
-    );
     let score = 0;
     for (let i = 0; i < props.correctAnswers.length; i++) {
-      if (JSON.stringify(props.correctAnswers[i]) === JSON.stringify(string[i]))
+      if (
+        JSON.stringify(props.correctAnswers[i]) ===
+        JSON.stringify(props.givenAnswers[i])
+      )
         score++;
     }
     props.setScore(score);
@@ -70,7 +70,7 @@ const mapStateToProps = (state) => {
   return {
     data: state.data,
     currentQuestion: state.currentQuestion,
-    givenAnswers: state.givenAnswers,
+    givenAnswers: state.givenAnswers.map((el) => el.map((el) => el.toString())),
     correctAnswers: state.correctAnswers,
   };
 };
