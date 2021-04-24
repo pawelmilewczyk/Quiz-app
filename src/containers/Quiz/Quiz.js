@@ -7,7 +7,13 @@ import CurrentQuestion from "./CurrentQuestion/CurrentQuestion";
 import Buttons from "./Buttons/Buttons";
 import { connect } from "react-redux";
 
+import { useEffect } from "react";
+
 const Quiz = (props) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return props.isData ? (
     <Aux>
       <Title>{props.quizName}</Title>
