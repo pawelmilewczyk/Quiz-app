@@ -6,3 +6,4 @@ export const SET_SCORE = "SET_SCORE";
 export const PLAY_AGAIN = "PLAY_AGAIN";
 export const SET_INIT_STATE = "SET_INIT_STATE";
 export const START_QUIZ = "START_QUIZ";
+export const SET_QUIZ_NAME = "SET_QUIZ_NAME";

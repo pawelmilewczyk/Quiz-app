@@ -4,6 +4,7 @@ const initialState = {
   titles: ["JavaScript", "HTML", "Linux", "PHP", "Docker"],
   filteredTitles: [],
   startQuiz: false,
+  quizName: null,
   data: [],
   currentQuestion: 0,
   correctAnswers: [],
@@ -98,6 +99,8 @@ const reducer = (state = initialState, action) => {
         startQuiz: true,
         currentQuestion: 0,
       };
+    case actionTypes.SET_QUIZ_NAME:
+      return { ...state, quizName: action.quizName };
     default:
       return state;
   }

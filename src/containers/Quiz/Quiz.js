@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 const Quiz = (props) => {
   return props.isData ? (
     <Aux>
-      <Title>{props.tag}</Title>
+      <Title>{props.quizName}</Title>
       <Questions />
       <Horizontal>Current Question</Horizontal>
       <CurrentQuestion />
@@ -24,7 +24,7 @@ const Quiz = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    tag: state.data[0]?.tags,
+    quizName: state.quizName,
     isData: state.data.length,
   };
 };

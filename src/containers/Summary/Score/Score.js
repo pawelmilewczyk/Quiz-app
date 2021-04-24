@@ -22,7 +22,7 @@ const Score = (props) => {
       "Perfect score! Congratulations! Now, you can choose another course! 💪";
   return (
     <div>
-      <Title style={classes.Title}>Quiz: {props.tag}</Title>
+      <Title style={classes.Title}>Quiz: {props.quizName}</Title>
       <Horizontal>Quiz information</Horizontal>
       <Paragraph>{feedback}</Paragraph>
       <div className={classes.Score}>
@@ -41,11 +41,9 @@ const Score = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    // data: state.data,
-    tag: state.data[0]?.tags,
+    quizName: state.quizName,
     score: state.score,
     questions: state.correctAnswers.length,
-    // givenAnswers: state.givenAnswers,
   };
 };
 

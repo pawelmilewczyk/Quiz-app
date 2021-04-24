@@ -88,3 +88,10 @@ export const startQuiz = () => {
     type: actionTypes.START_QUIZ,
   };
 };
+
+export const setQuizName = (name) => {
+  return {
+    type: actionTypes.SET_QUIZ_NAME,
+    quizName: name,
+  };
+};
