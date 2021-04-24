@@ -101,6 +101,9 @@ const reducer = (state = initialState, action) => {
       };
     case actionTypes.SET_QUIZ_NAME:
       return { ...state, quizName: action.quizName };
+
+    case actionTypes.CLEAR_DATA:
+      return { ...state, data: [] };
     default:
       return state;
   }

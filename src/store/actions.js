@@ -95,3 +95,9 @@ export const setQuizName = (name) => {
     quizName: name,
   };
 };
+
+export const clearData = () => {
+  return {
+    type: actionTypes.CLEAR_DATA,
+  };
+};

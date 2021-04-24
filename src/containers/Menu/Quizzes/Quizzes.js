@@ -9,6 +9,7 @@ const Quizzes = (props) => {
   const clickHandler = (e) => {
     const tag = e.target.parentNode.id;
     const difficulty = e.target.id.split("_")[1];
+    props.clearData();
     props.setQuizName(tag);
     props.startQuiz();
     props.getData(tag, difficulty);
@@ -60,6 +61,7 @@ const mapDispatchToProps = (dispatch) => {
     getData: (tag, difficulty) => dispatch(actions.getData(tag, difficulty)),
     startQuiz: () => dispatch(actions.startQuiz()),
     setQuizName: (name) => dispatch(actions.setQuizName(name)),
+    clearData: () => dispatch(actions.clearData()),
   };
 };
 
