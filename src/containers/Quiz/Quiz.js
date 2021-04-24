@@ -12,13 +12,13 @@ import { useEffect } from "react";
 const Quiz = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   return props.isData ? (
     <Aux>
       <Title>{props.quizName}</Title>
       <Questions />
-      <Horizontal>Question {props.currentQuestion}</Horizontal>
+      <Horizontal>Question {props.currentQuestion + 1}</Horizontal>
       <CurrentQuestion />
       <Horizontal />
       <Buttons />
