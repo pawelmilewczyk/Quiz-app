@@ -17,7 +17,6 @@ export const getData = (tag, difficulty = "") => {
     params: {
       apiKey: "tygm5wOzRUEC8rkoLMWhPh6GvKr6UA9KX3GOCqvn",
       tags: tag,
-      //tags: JavaScript, DevOps, HTML, Linux, Docker, PHP
       limit: 10,
       difficulty: difficulty,
     },
@@ -34,7 +33,6 @@ export const getData = (tag, difficulty = "") => {
             answers: el.answers,
             correctAnswers: el.correct_answers,
             multipleCorrectAnswers: el.multiple_correct_answers,
-            tags: el.tags[0].name,
           })
         );
         dispatch(storeData(data));

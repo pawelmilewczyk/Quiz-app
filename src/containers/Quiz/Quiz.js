@@ -12,7 +12,7 @@ const Quiz = (props) => {
     <Aux>
       <Title>{props.quizName}</Title>
       <Questions />
-      <Horizontal>Current Question</Horizontal>
+      <Horizontal>Question {props.currentQuestion}</Horizontal>
       <CurrentQuestion />
       <Horizontal />
       <Buttons />
@@ -26,6 +26,7 @@ const mapStateToProps = (state) => {
   return {
     quizName: state.quizName,
     isData: state.data.length,
+    currentQuestion: state.currentQuestion,
   };
 };
 

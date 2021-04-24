@@ -8,13 +8,9 @@ import * as actions from "../../../store/actions";
 import { Link } from "react-router-dom";
 
 const Buttons = (props) => {
-  const resetHandler = () => {
-    props.reset();
-  };
+  const resetHandler = () => props.reset();
 
-  const playAgainHandler = () => {
-    props.playAgain();
-  };
+  const playAgainHandler = () => props.playAgain();
 
   return (
     <Aux>

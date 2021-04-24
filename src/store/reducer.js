@@ -27,21 +27,26 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.UPDATE_TITLES:
       return { ...state, filteredTitles: action.titles };
+
     case actionTypes.GET_DATA:
       return {
         ...state,
         data: action.data,
         correctAnswers: action.correctAnswers,
       };
+
     case actionTypes.SET_CURRENT_QUESTION:
       return { ...state, currentQuestion: action.question };
+
     case actionTypes.SET_ANSWER:
       return {
         ...state,
         givenAnswers: action.answers,
       };
+
     case actionTypes.SET_SCORE:
       return { ...state, score: action.score };
+
     case actionTypes.PLAY_AGAIN:
       return {
         ...state,
@@ -60,6 +65,7 @@ const reducer = (state = initialState, action) => {
         ],
         score: 0,
       };
+
     case actionTypes.SET_INIT_STATE:
       return {
         ...state,
@@ -81,6 +87,7 @@ const reducer = (state = initialState, action) => {
         ],
         score: 0,
       };
+
     case actionTypes.START_QUIZ:
       return {
         ...state,
@@ -99,11 +106,13 @@ const reducer = (state = initialState, action) => {
         startQuiz: true,
         currentQuestion: 0,
       };
+
     case actionTypes.SET_QUIZ_NAME:
       return { ...state, quizName: action.quizName };
 
     case actionTypes.CLEAR_DATA:
       return { ...state, data: [] };
+
     default:
       return state;
   }

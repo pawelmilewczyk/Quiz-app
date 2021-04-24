@@ -12,6 +12,7 @@ const CurrentQuestion = (props) => {
     return () => setValue((value) => value + 1);
   }
   const forceUpdate = useForceUpdate();
+  //
 
   const answers = [];
   let correctAnswersLength = [];

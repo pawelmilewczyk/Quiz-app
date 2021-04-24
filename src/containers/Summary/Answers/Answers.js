@@ -6,10 +6,6 @@ import { FormControlLabel, Checkbox } from "@material-ui/core";
 import "./Answers.scss";
 
 const Answers = (props) => {
-  //
-  //
-  //
-
   const renderAnswer = (index, answers, isCorrectAnswersArray, isCorrect) => {
     let checkboxStyle;
     if (isCorrectAnswersArray || (!isCorrectAnswersArray && isCorrect))

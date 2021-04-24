@@ -2,7 +2,7 @@ import Score from "./Score/Score";
 import Answers from "./Answers/Answers";
 import Buttons from "./Buttons/Buttons";
 
-const Summary = (props) => {
+const Summary = () => {
   return (
     <div>
       <Score />
