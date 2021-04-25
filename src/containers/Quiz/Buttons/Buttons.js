@@ -1,14 +1,18 @@
 import Button from "../../../components/Button/Button";
 import Horizontal from "../../../components/Horizontal/Horizontal";
 import Aux from "../../../components/Aux/Aux";
+import Popup from "../Popup/Popup";
 import "./Buttons.scss";
 
+import { useState } from "react";
 import * as actions from "../../../store/actions";
 import { connect } from "react-redux";
 
 import { Link } from "react-router-dom";
 
 const Buttons = (props) => {
+  const [showPopup, setShowPopup] = useState(false);
+
   const questionsNumber = props.data.length;
 
   const nextQuestionHandler = () =>
@@ -18,6 +22,10 @@ const Buttons = (props) => {
     props.setQuestion(props.currentQuestion - 1);
 
   const submitHandler = () => {
+    props.givenAnswers.every((e) => e.includes("true"))
+      ? setShowPopup(false)
+      : setShowPopup(true);
+
     let score = 0;
     for (let i = 0; i < props.correctAnswers.length; i++) {
       if (
@@ -28,6 +36,18 @@ const Buttons = (props) => {
     }
     props.setScore(score);
   };
+
+  const submitButton = props.givenAnswers.every((e) => e.includes("true")) ? (
+    <Link to="/summary">
+      <Button type="submit" clicked={submitHandler}>
+        Submit Answers
+      </Button>
+    </Link>
+  ) : (
+    <Button type="submit" clicked={submitHandler}>
+      Submit Answers
+    </Button>
+  );
 
   return (
     <Aux>
@@ -56,12 +76,9 @@ const Buttons = (props) => {
           paddingTop: "2rem",
         }}
       >
-        <Link to="/summary">
-          <Button type="submit" clicked={submitHandler}>
-            Submit Answers
-          </Button>
-        </Link>
+        {submitButton}
       </div>
+      {showPopup ? <Popup showPopup={setShowPopup} /> : null}
     </Aux>
   );
 };
