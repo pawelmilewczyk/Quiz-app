@@ -33,6 +33,6 @@
 ## Technologies/Libraries
 
 <ul>
-    <li>React, redux, axios,</li>
+    <li>React, redux, router, axios,</li>
     <li>SCSS, match-sorter, material-ui.</li>
 </ul>
