@@ -2,8 +2,6 @@
 
 <em>This application is a copy of https://quizapi.io.</em>
 
-#
-
 ## Instruction
 
 ### Menu section:
@@ -31,8 +29,6 @@
     <li>below that, there are placed your answers compared with correct answers,</li>
     <li>finally, on the bottom you have two buttons - you can try again with the same quiz or select new one.</li>
 </ul>
-
-#
 
 ## Technologies/Libraries
 
