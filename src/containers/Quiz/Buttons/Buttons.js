@@ -13,6 +13,10 @@ import { Link } from "react-router-dom";
 const Buttons = (props) => {
   const [showPopup, setShowPopup] = useState(false);
 
+  const emptyAnswers =
+    props.correctAnswers.length -
+    props.givenAnswers.filter((e) => e.includes("true")).length;
+
   const questionsNumber = props.data.length;
 
   const nextQuestionHandler = () =>
@@ -78,7 +82,9 @@ const Buttons = (props) => {
       >
         {submitButton}
       </div>
-      {showPopup ? <Popup showPopup={setShowPopup} /> : null}
+      {showPopup ? (
+        <Popup showPopup={setShowPopup} emptyAnswers={emptyAnswers} />
+      ) : null}
     </Aux>
   );
 };

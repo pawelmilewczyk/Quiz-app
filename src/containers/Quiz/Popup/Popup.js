@@ -11,7 +11,9 @@ const Popup = (props) => {
     <Aux>
       <div className="Modal">
         <Paragraph>
-          Are you sure? You have some questions without answer 🥺
+          Are you sure? You have {props.emptyAnswers}
+          {props.emptyAnswers === 1 ? " question" : " questions"} without answer
+          🥺
         </Paragraph>
         <div className="ButtonContainer">
           <Link to="/summary">
