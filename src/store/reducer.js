@@ -1,6 +1,6 @@
 import * as actionTypes from "./actionTypes";
 
-const initialState = {
+export const initialState = {
   titles: ["JavaScript", "HTML", "Linux", "PHP", "Docker"],
   filteredTitles: [],
   startQuiz: false,
