@@ -1,5 +1,7 @@
 import * as actionTypes from "./actionTypes";
 
+const falseArray = Array(10).fill(Array(6).fill(false));
+
 export const initialState = {
   titles: ["JavaScript", "HTML", "Linux", "PHP", "Docker"],
   filteredTitles: [],
@@ -8,18 +10,7 @@ export const initialState = {
   data: [],
   currentQuestion: 0,
   correctAnswers: [],
-  givenAnswers: [
-    [false, false, false, false, false, false],
-    [false, false, false, false, false, false],
-    [false, false, false, false, false, false],
-    [false, false, false, false, false, false],
-    [false, false, false, false, false, false],
-    [false, false, false, false, false, false],
-    [false, false, false, false, false, false],
-    [false, false, false, false, false, false],
-    [false, false, false, false, false, false],
-    [false, false, false, false, false, false],
-  ],
+  givenAnswers: [...falseArray],
   score: 0,
 };
 
@@ -51,18 +42,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         currentQuestion: 0,
-        givenAnswers: [
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-        ],
+        givenAnswers: [...falseArray],
         score: 0,
       };
 
@@ -73,36 +53,14 @@ const reducer = (state = initialState, action) => {
         data: [],
         correctAnswers: [],
         currentQuestion: 0,
-        givenAnswers: [
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-        ],
+        givenAnswers: [...falseArray],
         score: 0,
       };
 
     case actionTypes.START_QUIZ:
       return {
         ...state,
-        givenAnswers: [
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-          [false, false, false, false, false, false],
-        ],
+        givenAnswers: [...falseArray],
         startQuiz: true,
         currentQuestion: 0,
       };
