@@ -1,7 +1,7 @@
 import * as actionTypes from "./actionTypes";
-import { QUESTION_LIMIT } from "./utilities";
+import { QUESTION_LIMIT, ANSWER_LIMIT } from "./utilities";
 
-const falseArray = Array(QUESTION_LIMIT).fill(Array(6).fill(false));
+const falseArray = Array(QUESTION_LIMIT).fill(Array(ANSWER_LIMIT).fill(false));
 
 export const initialState = {
   titles: ["JavaScript", "HTML", "Linux", "PHP", "Docker"],
