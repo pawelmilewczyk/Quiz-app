@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
+import { API_KEY, API_URL, QUESTION_LIMIT } from "./utilities";
 
 const storeData = (data) => {
   const correctAnswers = [];
@@ -13,11 +14,11 @@ const storeData = (data) => {
 
 export const getData = (tag, difficulty = "") => {
   const instance = axios.create({
-    baseURL: "https://quizapi.io/api/v1/questions",
+    baseURL: API_URL,
     params: {
-      apiKey: "tygm5wOzRUEC8rkoLMWhPh6GvKr6UA9KX3GOCqvn",
+      apiKey: API_KEY,
       tags: tag,
-      limit: 10,
+      limit: QUESTION_LIMIT,
       difficulty: difficulty,
     },
   });

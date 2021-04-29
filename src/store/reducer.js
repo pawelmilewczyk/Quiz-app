@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionTypes";
+import { QUESTION_LIMIT } from "./utilities";
 
-const falseArray = Array(10).fill(Array(6).fill(false));
+const falseArray = Array(QUESTION_LIMIT).fill(Array(6).fill(false));
 
 export const initialState = {
   titles: ["JavaScript", "HTML", "Linux", "PHP", "Docker"],
@@ -10,7 +11,7 @@ export const initialState = {
   data: [],
   currentQuestion: 0,
   correctAnswers: [],
-  givenAnswers: [...falseArray],
+  givenAnswers: falseArray.slice(),
   score: 0,
 };
 
@@ -42,7 +43,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         currentQuestion: 0,
-        givenAnswers: [...falseArray],
+        givenAnswers: falseArray.slice(),
         score: 0,
       };
 
@@ -53,14 +54,14 @@ const reducer = (state = initialState, action) => {
         data: [],
         correctAnswers: [],
         currentQuestion: 0,
-        givenAnswers: [...falseArray],
+        givenAnswers: falseArray.slice(),
         score: 0,
       };
 
     case actionTypes.START_QUIZ:
       return {
         ...state,
-        givenAnswers: [...falseArray],
+        givenAnswers: falseArray.slice(),
         startQuiz: true,
         currentQuestion: 0,
       };
