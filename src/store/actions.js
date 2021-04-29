@@ -12,6 +12,13 @@ const storeData = (data) => {
   };
 };
 
+const showError = (error) => {
+  return {
+    type: actionTypes.SHOW_ERROR,
+    errorResponse: error,
+  };
+};
+
 export const getData = (tag, difficulty = "") => {
   const instance = axios.create({
     baseURL: API_URL,
@@ -24,6 +31,7 @@ export const getData = (tag, difficulty = "") => {
   });
 
   let data = [];
+  let error = {};
   return (dispatch) => {
     instance
       .get()
@@ -38,7 +46,14 @@ export const getData = (tag, difficulty = "") => {
         );
         dispatch(storeData(data));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.warn(err);
+        error = {
+          status: err.response.status,
+          message: err.response.data.error,
+        };
+        dispatch(showError(error));
+      });
   };
 };
 

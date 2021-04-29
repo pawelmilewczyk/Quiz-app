@@ -8,6 +8,7 @@ export const initialState = {
   filteredTitles: [],
   startQuiz: false,
   quizName: null,
+  errorResponse: null,
   data: [],
   currentQuestion: 0,
   correctAnswers: [],
@@ -26,6 +27,9 @@ const reducer = (state = initialState, action) => {
         data: action.data,
         correctAnswers: action.correctAnswers,
       };
+
+    case actionTypes.SHOW_ERROR:
+      return { ...state, errorResponse: action.errorResponse };
 
     case actionTypes.SET_CURRENT_QUESTION:
       return { ...state, currentQuestion: action.question };
