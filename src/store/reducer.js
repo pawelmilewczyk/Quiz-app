@@ -11,7 +11,7 @@ export const initialState = {
   data: [],
   currentQuestion: 0,
   correctAnswers: [],
-  givenAnswers: falseArray.slice(),
+  givenAnswers: JSON.parse(JSON.stringify(falseArray)),
   score: 0,
 };
 
@@ -43,7 +43,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         currentQuestion: 0,
-        givenAnswers: falseArray.slice(),
+        givenAnswers: JSON.parse(JSON.stringify(falseArray)),
         score: 0,
       };
 
@@ -54,14 +54,14 @@ const reducer = (state = initialState, action) => {
         data: [],
         correctAnswers: [],
         currentQuestion: 0,
-        givenAnswers: falseArray.slice(),
+        givenAnswers: JSON.parse(JSON.stringify(falseArray)),
         score: 0,
       };
 
     case actionTypes.START_QUIZ:
       return {
         ...state,
-        givenAnswers: falseArray.slice(),
+        givenAnswers: JSON.parse(JSON.stringify(falseArray)),
         startQuiz: true,
         currentQuestion: 0,
       };
